@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const roomRoutes = require("./routes/roomRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api", roomRoutes);
+app.use("/rooms", roomRoutes);
+app.use("/bookings", bookingRoutes);
 
 // MongoDB Atlas Connection
 mongoose

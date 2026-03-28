@@ -1,31 +1,34 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Navbar() {
   return (
-    <nav className="bg-white shadow-sm fixed w-full z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        {/* Logo */}
-        <h1 className="text-xl font-semibold text-gray-800">HotelMS</h1>
-
-        {/* Links */}
-        <div className="space-x-6 hidden md:flex text-gray-600">
-          <Link to="/" className="hover:text-black">
-            Home
-          </Link>
-          <Link to="/rooms" className="hover:text-black">
-            Rooms
-          </Link>
-          <Link to="/contact" className="hover:text-black">
-            Contact
-          </Link>
+    <motion.div
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      className="fixed w-full z-50 bg-[#0f2f35]/80 backdrop-blur-md"
+    >
+      <div className="flex justify-between items-center px-10 py-4 text-white">
+        {/* LEFT */}
+        <div className="flex gap-6 text-sm">
+          <span>HOME</span>
+          <span>ABOUT</span>
+          <span>SERVICES</span>
+          <span>PAGES</span>
         </div>
 
-        {/* CTA */}
-        <button className="bg-black text-white px-5 py-2 rounded-md hover:bg-gray-800 transition">
-          Book Now
-        </button>
+        {/* CENTER */}
+        <h1 className="text-xl tracking-[5px] font-semibold">HOTEL</h1>
+
+        {/* RIGHT */}
+        <div className="flex items-center gap-6">
+          <span>CONTACT</span>
+
+          <button className="bg-[#4fc3c8] px-4 py-2 rounded-full text-sm">
+            BUY NOW
+          </button>
+        </div>
       </div>
-    </nav>
+    </motion.div>
   );
 }
 
