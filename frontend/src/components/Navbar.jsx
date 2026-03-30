@@ -13,7 +13,7 @@ function Navbar() {
           <span>HOME</span>
           <span>ABOUT</span>
           <span>SERVICES</span>
-          <span>PAGES</span>
+          <span>ROOMS</span>
         </div>
 
         {/* CENTER */}
@@ -24,7 +24,7 @@ function Navbar() {
           <span>CONTACT</span>
 
           <button className="bg-[#4fc3c8] px-4 py-2 rounded-full text-sm">
-            BUY NOW
+            LOGIN
           </button>
         </div>
       </div>

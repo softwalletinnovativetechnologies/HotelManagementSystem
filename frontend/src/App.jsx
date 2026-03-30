@@ -6,8 +6,10 @@ import Rooms from "./pages/Rooms";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import RoomDetails from "./pages/RoomDetails";
-
-
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AdminRoute from "./components/AdminRoute";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -20,6 +22,16 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/rooms/:id" element={<RoomDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
