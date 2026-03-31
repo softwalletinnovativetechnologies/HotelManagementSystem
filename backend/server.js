@@ -16,6 +16,10 @@ const roomRoutes = require("./routes/roomRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const userRoutes = require("./routes/userRoutes");
+
+const adminRoutes = require("./routes/adminRoutes");
+
+app.use("/admin", adminRoutes);
 app.use("/payment", paymentRoutes);
 // Routes use
 app.use("/auth", authRoutes);
@@ -36,3 +40,4 @@ app.get("/", (req, res) => {
 
 // Server start
 app.listen(5000, () => console.log("Server running on port 5000 🔥"));
+console.log("User Routes Loaded ✅");

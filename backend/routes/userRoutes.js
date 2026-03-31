@@ -15,4 +15,13 @@ router.get("/", protect, adminOnly, async (req, res) => {
   }
 });
 
+// ==============================
+// ✅ GET PROFILE (LOGGED USER)
+// ==============================
+router.get("/profile", protect, (req, res) => {
+  res.json(req.user);
+});
+
+console.log("User Routes file Running ✅");
+
 module.exports = router;

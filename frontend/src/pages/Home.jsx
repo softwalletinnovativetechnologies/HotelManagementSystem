@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#0f2f35] text-white overflow-hidden">
       {/* 🔥 HERO */}
       <section className="relative min-h-screen flex items-center px-6 md:px-20 pt-28">
         {/* BG */}
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center scale-110 pointer-events-none"
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1566073771259-6a8506099945')",
@@ -15,7 +18,7 @@ function Home() {
         />
 
         {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f2f35]/90 to-[#0f2f35]/70 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f2f35]/90 to-[#0f2f35]/70 z-0 pointer-events-none" />
 
         {/* CONTENT */}
         <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center w-full">
@@ -39,11 +42,17 @@ function Home() {
             </p>
 
             <div className="mt-8 flex gap-4">
-              <button className="bg-[#4fc3c8] px-6 py-3 rounded-full hover:scale-105 transition">
+              <button
+                onClick={() => navigate("/rooms")}
+                className="bg-[#4fc3c8] px-6 py-3 rounded-full hover:scale-105 transition z-30 relative"
+              >
                 Book Now
               </button>
 
-              <button className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+              <button
+                onClick={() => navigate("/rooms")}
+                className="bg-[#4fc3c8] px-6 py-3 rounded-full hover:scale-105 transition z-30 relative"
+              >
                 Explore Now
               </button>
             </div>
@@ -131,12 +140,11 @@ function Home() {
             <div className="bg-white p-5 rounded-xl shadow-lg flex justify-between items-center hover:shadow-2xl transition">
               <div>
                 <p className="text-sm text-gray-500">Contact Us</p>
-                <h3 className="font-semibold">+91 9876543210</h3>
+                <h3 className="font-semibold">+91 9596393658</h3> <br />
+                <h3 className="font-semibold">
+                  info@softwalletinnovativetechnologies.cloud
+                </h3>
               </div>
-
-              <button className="bg-[#4fc3c8] px-4 py-2 rounded-lg text-white hover:scale-105 transition">
-                Mail Us
-              </button>
             </div>
           </motion.div>
         </section>

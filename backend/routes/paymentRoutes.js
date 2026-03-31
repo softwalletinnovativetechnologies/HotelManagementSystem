@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Razorpay = require("razorpay");
-const protect = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 const Room = require("../models/Room");
 
 const razorpay = new Razorpay({
@@ -9,6 +9,7 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
+// ✅ CREATE ORDER
 router.post("/order", protect, async (req, res) => {
   try {
     const { roomId, checkIn, checkOut } = req.body;

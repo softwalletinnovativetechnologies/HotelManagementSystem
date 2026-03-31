@@ -66,4 +66,30 @@ router.get("/", protect, adminOnly, async (req, res) => {
   }
 });
 
+router.delete("/:id", protect, adminOnly, async (req, res) => {
+  try {
+    const booking = await Booking.findById(req.params.id);
+
+    if (!booking) {
+      return res.status(404).json({ message: "Booking not found ❌" });
+    }
+
+    await booking.deleteOne();
+
+    res.json({ message: "Booking deleted ✅" });
+  } catch (err) {
+    console.log("DELETE ERROR:", err.message);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// ✅ USER BOOKINGS
+router.get("/my", protect, async (req, res) => {
+  const bookings = await Booking.find({ user: req.user.id })
+    .populate("room")
+    .sort({ createdAt: -1 });
+
+  res.json(bookings);
+});
+
 module.exports = router;

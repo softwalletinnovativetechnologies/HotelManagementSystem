@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#0f2f35] text-slate-500 overflow-hidden">
       {/* HERO */}
@@ -73,7 +76,10 @@ function About() {
               detail is crafted to deliver exceptional guest experiences.
             </p>
 
-            <button className="bg-[#4fc3c8] px-6 py-3 rounded-full text-white hover:scale-105 transition">
+            <button
+              onClick={() => navigate("/rooms")}
+              className="bg-[#0f2f35] text-white px-6 py-3 rounded-full hover:bg-[#4fc3c8] transition"
+            >
               Discover More
             </button>
           </motion.div>
